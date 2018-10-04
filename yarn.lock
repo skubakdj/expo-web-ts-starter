@@ -872,6 +872,12 @@
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/@types/storybook__addon-options/-/storybook__addon-options-3.2.2.tgz#f42f81414fa9692cf20d947e9b49c60c4bdfbc4d"
 
+"@types/storybook__react-native@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@types/storybook__react-native/-/storybook__react-native-3.0.2.tgz#29ede586d2f3010b9eecc83d59ea1f4436824837"
+  dependencies:
+    "@types/react" "*"
+
 "@types/storybook__react@^3.0.9":
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/@types/storybook__react/-/storybook__react-3.0.9.tgz#aac193f0c037ddfc2342bd027d720553ac089a56"
@@ -1711,6 +1717,10 @@ babel-plugin-dotenv@0.1.1:
   dependencies:
     dotenv "^2.0.0"
 
+babel-plugin-expo-web@^0.0.14:
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/babel-plugin-expo-web/-/babel-plugin-expo-web-0.0.14.tgz#bcd0209aadaf0693734a67cdbf3eb10d5be79cc0"
+
 babel-plugin-external-helpers@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-external-helpers/-/babel-plugin-external-helpers-6.22.0.tgz#2285f48b02bd5dede85175caf8c62e86adccefa1"
@@ -2440,7 +2450,7 @@ babel-preset-react-native@1.9.0:
     babel-plugin-transform-regenerator "^6.5.0"
     react-transform-hmr "^1.0.4"
 
-babel-preset-react-native@^4.0.0:
+babel-preset-react-native@^4.0.0, babel-preset-react-native@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/babel-preset-react-native/-/babel-preset-react-native-4.0.1.tgz#14ff07bdb6c8df9408082c0c18b2ce8e3392e76a"
   dependencies:
@@ -4475,6 +4485,15 @@ expo-sms@~1.0.2:
   dependencies:
     expo-core "~1.1.0"
     expo-permissions-interface "~1.1.0"
+
+expo-web@^0.0.14:
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/expo-web/-/expo-web-0.0.14.tgz#c6df0fd2a38b1f90fc4cbf65c7ff748924312edc"
+  dependencies:
+    moment "^2.20.1"
+    moment-timezone "^0.5.14"
+    react-native-vector-icons "^4.5.0"
+    ua-parser-js "^0.7.17"
 
 expo@^30.0.1:
   version "30.0.1"
@@ -7094,6 +7113,16 @@ mkdirp@0.5.x, mkdirp@0.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@~0
   dependencies:
     minimist "0.0.8"
 
+moment-timezone@^0.5.14:
+  version "0.5.21"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.21.tgz#3cba247d84492174dbf71de2a9848fa13207b845"
+  dependencies:
+    moment ">= 2.9.0"
+
+"moment@>= 2.9.0", moment@^2.20.1:
+  version "2.22.2"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
+
 morgan@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/morgan/-/morgan-1.9.1.tgz#0a8d16734a1d9afbc824b99df87e738e58e2da59"
@@ -8533,6 +8562,14 @@ react-native-vector-icons@4.5.0:
     prop-types "^15.5.10"
     yargs "^8.0.2"
 
+react-native-vector-icons@^4.5.0:
+  version "4.6.0"
+  resolved "http://registry.npmjs.org/react-native-vector-icons/-/react-native-vector-icons-4.6.0.tgz#e4014311ffa6de397d914ffc31b7097a874cc8d5"
+  dependencies:
+    lodash "^4.0.0"
+    prop-types "^15.5.10"
+    yargs "^8.0.2"
+
 react-native-web@^0.9.1:
   version "0.9.1"
   resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.9.1.tgz#6f9d089e7fbbcac32a44791ad6f484385ff90b87"
@@ -9925,7 +9962,7 @@ typescript@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.1.1.tgz#3362ba9dd1e482ebb2355b02dfe8bcd19a2c7c96"
 
-ua-parser-js@^0.7.18:
+ua-parser-js@^0.7.17, ua-parser-js@^0.7.18:
   version "0.7.18"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.18.tgz#a7bfd92f56edfb117083b69e31d2aa8882d4b1ed"
 

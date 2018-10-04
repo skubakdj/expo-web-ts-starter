@@ -35,7 +35,7 @@ const babelLoader = {
     // This aliases 'react-native' to 'react-native-web' and includes only
     // the modules needed by the app.
     plugins: [
-      // 'expo-web',
+      'expo-web',
       'react-native-web',
     ],
     presets: ['module:metro-react-native-babel-preset'],
@@ -62,6 +62,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', 'jsx'],
     alias: {
+      '@expo/vector-icons': 'expo-web',
+      'expo': 'expo-web',
+      'react-native': 'react-native-web',
       '@storybook/react-native': '@storybook/react'
     }
   },

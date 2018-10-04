@@ -32,7 +32,7 @@ const babelLoaderConfiguration = {
       // This aliases 'react-native' to 'react-native-web' and includes only
       // the modules needed by the app.
       plugins: [
-        // 'expo-web',
+        'expo-web',
         'react-native-web',
         
         // 'transform-decorators-legacy',
@@ -132,7 +132,6 @@ module.exports = {
       './assets/images/expo-icon.png': './assets/images/expo-icon@2x.png',
       './assets/images/slack-icon.png': './assets/images/slack-icon@2x.png',
 
-      //might have to remove this expo aliases
       '@expo/vector-icons': 'expo-web',
       expo: 'expo-web',
       'react-native': 'react-native-web',
