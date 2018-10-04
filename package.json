@@ -18,9 +18,8 @@
     "dev:mobile:android": "expo start --android",
     "dev:mobile:ios": "expo start --ios",
     "dev:web": "webpack-dev-server -d --config ./webpack.config.js  --inline --hot --colors",
-    "dev:storybook:web": "start-storybook --config-dir .storybook.web -p 6006",
-    "dev:storybook:server": "storybook start -p 7007 --config-dir ./.storybook.mobile",
-    "dev:storybook:mobile": "concurrently \"sleep 1 && yarn run tempSetEnv STORYBOOK_MODE=true\" \"sleep 2 && yarn run dev:mobile\""
+    "dev:storybook:web": "start-storybook --config-dir storybook.web -p 6006",
+    "dev:storybook:mobile": "storybook start -p 7007 --config-dir storybook.mobile"
   },
   "dependencies": {
     "expo": "^30.0.1",
@@ -49,10 +48,12 @@
     "@types/storybook__addon-links": "^3.3.2",
     "@types/storybook__addon-options": "^3.2.2",
     "@types/storybook__react": "^3.0.9",
+    "@types/storybook__react-native": "^3.0.2",
     "awesome-typescript-loader": "^5.2.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.4",
     "babel-plugin-react-native-web": "^0.9.1",
+    "babel-preset-react-native": "^4.0.1",
     "babel-runtime": "^6.26.0",
     "concurrently": "^4.0.1",
     "css-loader": "^1.0.0",
