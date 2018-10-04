@@ -2,7 +2,7 @@
   "compilerOptions": {
       "module":"es2015",
       "target": "es2015",
-      "jsx": "react",
+      "jsx": "react-native",
       "rootDir": "src",
       "outDir": "build/tsc",
       "allowSyntheticDefaultImports": true,
@@ -34,7 +34,9 @@
       "jest.config.js",
       "App.js",
       "webpack.config.js",
-      "scripts"
+      "scripts",
+      "storybook.web",
+      "storybook.mobile"
   ],
   "compileOnSave": false
 }
