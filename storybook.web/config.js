@@ -1,4 +1,4 @@
-import { configure } from '@storybook/react';
+import { configure } from '@storybook/react'
 
 // automatically import all files ending in *.stories.tsx
 // const req = require.context('../src', true, /.stories.tsx$/);
@@ -9,6 +9,6 @@ import { configure } from '@storybook/react';
 // configure(loadStories, module);
 
 configure(() => {
-  require('../src/ui/index.stories');
+  require('../src/ui/index.stories')
   // require('../storybook.mobile/stories.old');
-}, module);
+}, module)

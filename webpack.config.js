@@ -1,13 +1,12 @@
-
 // Modeled after example in react-native-web docs:
 // https://github.com/necolas/react-native-web/blob/a6dddbb6e1f07d761990fad63b21199958566209/docs/guides/multi-platform-apps.md
 
-const path = require('path');
+const path = require('path')
 
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const appDirectory = path.resolve(__dirname, './');
+const appDirectory = path.resolve(__dirname, './')
 
 // Many OSS React Native packages are not compiled to ES5 before being
 // published. If you depend on uncompiled packages they may cause webpack build
@@ -22,10 +21,7 @@ const babelLoader = {
 
     // This aliases 'react-native' to 'react-native-web' and includes only
     // the modules needed by the app.
-    plugins: [
-      'expo-web',
-      'react-native-web',
-    ],
+    plugins: ['expo-web', 'react-native-web'],
     presets: ['module:metro-react-native-babel-preset'],
   },
 }
@@ -38,12 +34,10 @@ const babelLoaderConfiguration = {
     path.resolve(appDirectory, 'node_modules/react-native'),
     path.resolve(appDirectory, 'node_modules/@expo/samples'),
     path.resolve(appDirectory, 'node_modules/@expo/vector-icons'),
-    path.resolve(appDirectory, 'src')
+    path.resolve(appDirectory, 'src'),
   ],
-  use: [
-    babelLoader
-  ] 
-};
+  use: [babelLoader],
+}
 
 const tsLoader = {
   loader: 'awesome-typescript-loader',
@@ -52,20 +46,15 @@ const tsLoader = {
 const typescriptLoaderConfiguration = {
   test: /\.tsx?$/,
   exclude: /node_modules/,
-  include: [
-    path.resolve(appDirectory, 'src')
-  ],
-  use: [
-    babelLoader,
-    tsLoader
-  ]
+  include: [path.resolve(appDirectory, 'src')],
+  use: [babelLoader, tsLoader],
 }
 
 // This is needed for loading css
 const cssLoaderConfiguration = {
   test: /\.css$/,
   use: ['style-loader', 'css-loader'],
-};
+}
 
 const imageLoaderConfiguration = {
   test: /\.(gif|jpe?g|png|svg)$/,
@@ -75,7 +64,7 @@ const imageLoaderConfiguration = {
       name: '[name].[ext]',
     },
   },
-};
+}
 
 const ttfLoaderConfiguration = {
   test: /\.ttf$/,
@@ -93,14 +82,14 @@ const ttfLoaderConfiguration = {
     path.resolve(appDirectory, 'node_modules/@expo/vector-icons/fonts'),
     path.resolve(
       appDirectory,
-      'node_modules/expo-web/node_modules/react-native-vector-icons/Fonts',
+      'node_modules/expo-web/node_modules/react-native-vector-icons/Fonts'
     ),
     path.resolve(
       appDirectory,
-      'node_modules/expo/node_modules/@expo/vector-icons/fonts',
+      'node_modules/expo/node_modules/@expo/vector-icons/fonts'
     ),
   ],
-};
+}
 
 module.exports = {
   // your web-specific entry file
@@ -129,12 +118,14 @@ module.exports = {
     // builds to eliminate development checks and reduce build size. You may
     // wish to include additional optimizations.
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+      'process.env.NODE_ENV': JSON.stringify(
+        process.env.NODE_ENV || 'development'
+      ),
       __DEV__: process.env.NODE_ENV === 'production' || true,
     }),
     new HtmlWebpackPlugin({
-      template: 'src/index.web.html'
-    })
+      template: 'src/index.web.html',
+    }),
   ],
 
   resolve: {
@@ -147,8 +138,8 @@ module.exports = {
       './assets/images/expo-icon.png': './assets/images/expo-icon@2x.png',
       './assets/images/slack-icon.png': './assets/images/slack-icon@2x.png',
       '@expo/vector-icons': 'expo-web',
-      'expo': 'expo-web',
+      expo: 'expo-web',
       'react-native': 'react-native-web',
     },
   },
-};
+}
