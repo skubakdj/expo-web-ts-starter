@@ -9,6 +9,6 @@ import { configure } from '@storybook/react';
 // configure(loadStories, module);
 
 configure(() => {
-  require('../build/tsc/ui/index.stories');
+  require('../src/ui/index.stories');
   // require('../storybook.mobile/stories.old');
 }, module);

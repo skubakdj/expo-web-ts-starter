@@ -3,8 +3,8 @@
 // https://github.com/necolas/react-native-web/blob/a6dddbb6e1f07d761990fad63b21199958566209/docs/guides/multi-platform-apps.md
 
 const path = require('path');
-const webpack = require('webpack');
 
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const appDirectory = path.resolve(__dirname, './');
@@ -13,39 +13,53 @@ const appDirectory = path.resolve(__dirname, './');
 // published. If you depend on uncompiled packages they may cause webpack build
 // errors. To fix this webpack can be configured to compile to the necessary
 // 'node_module'.
+
+const babelLoader = {
+  loader: 'babel-loader',
+  options: {
+    // cacheDirectory: false,
+    babelrc: false,
+
+    // This aliases 'react-native' to 'react-native-web' and includes only
+    // the modules needed by the app.
+    plugins: [
+      'expo-web',
+      'react-native-web',
+    ],
+    presets: ['module:metro-react-native-babel-preset'],
+  },
+}
+
 const babelLoaderConfiguration = {
-  test: /\.js$/,
+  test: /\.jsx$/,
   // Add every directory that needs to be compiled by Babel during the build.
   include: [
-    path.resolve(appDirectory, 'build/mobile'),
     path.resolve(appDirectory, 'node_modules/react-navigation'),
-    path.resolve(appDirectory, 'node_modules/react-native-'),
+    path.resolve(appDirectory, 'node_modules/react-native'),
     path.resolve(appDirectory, 'node_modules/@expo/samples'),
     path.resolve(appDirectory, 'node_modules/@expo/vector-icons'),
+    path.resolve(appDirectory, 'src')
   ],
-  use: {
-    loader: 'babel-loader',
-    options: {
-      // cacheDirectory: false,
-      babelrc: false,
-      // Babel configuration (or use .babelrc)
-      // This aliases 'react-native' to 'react-native-web' and includes only
-      // the modules needed by the app.
-      plugins: [
-        'expo-web',
-        'react-native-web',
-        
-        // 'transform-decorators-legacy',
-        // [
-        //   '@babel/plugin-transform-runtime',
-        //   { helpers: false, regenerator: true },
-        // ],
-      ],
-      // The 'react-native' preset is recommended to match React Native's packager
-      presets: ['module:metro-react-native-babel-preset'],
-    },
-  },
+  use: [
+    babelLoader
+  ] 
 };
+
+const tsLoader = {
+  loader: 'awesome-typescript-loader',
+}
+
+const typescriptLoaderConfiguration = {
+  test: /\.tsx?$/,
+  exclude: /node_modules/,
+  include: [
+    path.resolve(appDirectory, 'src')
+  ],
+  use: [
+    babelLoader,
+    tsLoader
+  ]
+}
 
 // This is needed for loading css
 const cssLoaderConfiguration = {
@@ -90,7 +104,7 @@ const ttfLoaderConfiguration = {
 
 module.exports = {
   // your web-specific entry file
-  entry: path.resolve(appDirectory, './build/tsc/index.web.js'),
+  entry: path.resolve(appDirectory, './src/index.web.tsx'),
   devtool: 'cheap-module-source-map',
 
   // configures where the build ends up
@@ -103,6 +117,7 @@ module.exports = {
   module: {
     rules: [
       babelLoaderConfiguration,
+      typescriptLoaderConfiguration,
       cssLoaderConfiguration,
       imageLoaderConfiguration,
       ttfLoaderConfiguration,
@@ -127,13 +142,12 @@ module.exports = {
     // module implementations should be written in files using the extension
     // '.web.js'.
     symlinks: false,
-    extensions: ['.web.js', '.js'],
+    extensions: ['.web.js', '.js', '.ts', '.tsx'],
     alias: {
       './assets/images/expo-icon.png': './assets/images/expo-icon@2x.png',
       './assets/images/slack-icon.png': './assets/images/slack-icon@2x.png',
-
       '@expo/vector-icons': 'expo-web',
-      expo: 'expo-web',
+      'expo': 'expo-web',
       'react-native': 'react-native-web',
     },
   },

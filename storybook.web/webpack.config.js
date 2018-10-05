@@ -45,22 +45,32 @@ const babelLoader = {
 module.exports = {
   module: {
     rules: [{
-      test: /\.js$/,
+      test: /\.jsx?$/,
       exclude: /node_modules/,
       include: [
         path.resolve(appDirectory, 'node_modules/react-navigation'),
         path.resolve(appDirectory, 'node_modules/react-native'),
         path.resolve(appDirectory, 'node_modules/@expo/samples'),
         path.resolve(appDirectory, 'node_modules/@expo/vector-icons'),
-        path.resolve(appDirectory, 'build/tsc')
+        path.resolve(appDirectory, 'src')
       ],
       use: [
         babelLoader
       ]
+    }, {
+      test: /\.tsx?$/,
+      exclude: /node_modules/,
+      include: [
+        path.resolve(appDirectory, 'src')
+      ],
+      use: [
+        babelLoader,
+        tsLoader
+      ]
     }]
   },
   resolve: {
-    extensions: ['.js', 'jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
       '@expo/vector-icons': 'expo-web',
       'expo': 'expo-web',

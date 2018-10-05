@@ -11,26 +11,42 @@ const babelLoader = {
   },
 }
 
+const tsLoader = {
+  loader: 'ts-loader',
+  options: {
+    compilerOptions: { declaration: false, declarationMap: false },
+  }
+}
+
 module.exports = {
   module: {
     rules: [{
-      test: /\.js$/,
+      test: /\.js?$/,
       exclude: /node_modules/,
       include: [
-        path.resolve(appDirectory, 'build/mobile'),
         path.resolve(appDirectory, 'node_modules/react-navigation'),
         path.resolve(appDirectory, 'node_modules/react-native'),
         path.resolve(appDirectory, 'node_modules/@expo/samples'),
         path.resolve(appDirectory, 'node_modules/@expo/vector-icons'),
         path.resolve(appDirectory, 'storybook.mobile'),
-        path.resolve(appDirectory, 'build/tsc')
+        path.resolve(appDirectory, 'src')
       ],
       use: [
         babelLoader
       ]
+    }, {
+      test: /\.tsx?$/,
+      exclude: /node_modules/,
+      include: [
+        path.resolve(appDirectory, 'src')
+      ],
+      use: [
+        babelLoader,
+        tsLoader
+      ]
     }]
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   }
 }

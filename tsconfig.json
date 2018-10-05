@@ -3,7 +3,9 @@
       "module":"es2015",
       "target": "es2015",
       "jsx": "react-native",
-      "rootDir": "src",
+      "noEmit": false,
+      "importHelpers": true,
+    //   "rootDir": "src",
       "outDir": "build/tsc",
       "allowSyntheticDefaultImports": true,
       "noImplicitAny": true,
@@ -15,7 +17,8 @@
       "noUnusedParameters": true,
       "noImplicitReturns": true,
       "skipLibCheck": true,
-      "moduleResolution":"Node"
+      "moduleResolution":"node",
+      "esModuleInterop": true
   },
   "filesGlob": [
       "typings/index.d.ts",
@@ -36,7 +39,8 @@
       "webpack.config.js",
       "scripts",
       "storybook.web",
-      "storybook.mobile"
+      "storybook.mobile",
+      "rn-cli.config.js"
   ],
   "compileOnSave": false
 }
