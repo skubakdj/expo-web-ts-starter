@@ -6,6 +6,6 @@ exports[`Text jest snapshots should be working 1`] = `
   allowFontScaling={true}
   ellipsizeMode="tail"
 >
-  I am text!
+  I'm some example text!
 </Text>
 `;

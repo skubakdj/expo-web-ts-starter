@@ -3,16 +3,16 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import renderer from 'react-test-renderer'
 
-import { Text } from './Text'
+import { Example } from './Example'
 
 describe('Text', () => {
   it('jest snapshots should be working', () => {
-    const tree = renderer.create(<Text />).toJSON()
+    const tree = renderer.create(<Example />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('enzyme should be working', () => {
-    const wrapper = shallow(<Text />)
+    const wrapper = shallow(<Example />)
     expect(wrapper).toBeTruthy()
   })
 })

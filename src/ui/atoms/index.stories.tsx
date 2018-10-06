@@ -1,1 +1,1 @@
-import './Text/Text.stories'
+import './Example/index.stories'
