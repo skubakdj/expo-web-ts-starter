@@ -3,7 +3,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "scripts": {
-    "test": "jest --config=jest.config.js --no-cache",
+    "test": "jest --config=jest.config.js",
     "test:interactive": "yarn run test --watchAll",
     "tempSetEnv": "node ./scripts/tempSetEnvFile.js",
     "lint": "tslint src/**/*.ts",
