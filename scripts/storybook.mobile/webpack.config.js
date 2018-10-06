@@ -1,6 +1,6 @@
 const path = require('path')
 
-const appDirectory = path.resolve(__dirname, '../')
+const appDirectory = path.resolve(__dirname, '../../')
 
 const babelLoader = {
   loader: 'babel-loader',

@@ -1,13 +1,6 @@
 const path = require('path')
 
-const appDirectory = path.resolve(__dirname, '../')
-
-// const tsLoaderConfig = {
-//   test: /\.tsx?$/,
-//   use: [{
-
-//   }]
-// }
+const appDirectory = path.resolve(__dirname, '../../')
 
 const tsLoader = {
   loader: 'ts-loader',

@@ -23,8 +23,8 @@
     "dev:mobile:android": "expo start --android",
     "dev:mobile:ios": "expo start --ios",
     "dev:web": "webpack-dev-server -d --config ./webpack.config.js  --inline --hot --colors",
-    "dev:storybook:web": "start-storybook --config-dir storybook.web -p 6006",
-    "dev:storybook:mobile": "storybook start -p 7007 --config-dir storybook.mobile"
+    "dev:storybook:web": "start-storybook --config-dir scripts/storybook.web -p 6006",
+    "dev:storybook:mobile": "storybook start -p 7007 --config-dir scripts/storybook.mobile"
   },
   "husky": {
     "hooks": {
